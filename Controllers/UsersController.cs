@@ -92,6 +92,7 @@ namespace test_tryCatch.Controllers
         }
         //data
         int a = 10;
+        int b = 11;
         //data
     }
 }
