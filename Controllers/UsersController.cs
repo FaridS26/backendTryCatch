@@ -90,5 +90,8 @@ namespace test_tryCatch.Controllers
 
             return Ok();
         }
+        //data
+        int a = 10;
+        //data
     }
 }
