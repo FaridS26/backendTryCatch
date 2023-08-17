@@ -22,6 +22,8 @@ public partial class DataContext : DbContext
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
+    public virtual DbSet<Persona> Personas { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -136,6 +138,51 @@ public partial class DataContext : DbContext
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("updated_at");
+        });
+
+        modelBuilder.Entity<Persona>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("persona_pkey");
+
+            entity.ToTable("personas");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Apellidos)
+                .HasMaxLength(100)
+                .HasColumnName("apellidos");
+            entity.Property(e => e.Cedula)
+                .HasMaxLength(15)
+                .HasColumnName("cedula");
+            entity.Property(e => e.Celular)
+                .HasMaxLength(15)
+                .HasColumnName("celular");
+            entity.Property(e => e.CodigoEmpleado)
+                .HasMaxLength(20)
+                .HasColumnName("codigo_empleado");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("created_at");
+            entity.Property(e => e.Direccion).HasColumnName("direccion");
+            entity.Property(e => e.Email)
+                .HasMaxLength(100)
+                .HasColumnName("email");
+            entity.Property(e => e.Nombres)
+                .HasMaxLength(100)
+                .HasColumnName("nombres");
+            entity.Property(e => e.Rol)
+                .HasMaxLength(20)
+                .HasColumnName("rol");
+            entity.Property(e => e.Status)
+                .HasMaxLength(20)
+                .HasColumnName("status");
+            entity.Property(e => e.UpdatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("updated_at");
+            entity.Property(e => e.FechaNacimiento).HasColumnName("fecha_nacimiento");
+            entity.Property(e => e.Lat).HasColumnName("lat");
+            entity.Property(e => e.Lng).HasColumnName("lng");
         });
 
         OnModelCreatingPartial(modelBuilder);
