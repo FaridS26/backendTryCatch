@@ -5,9 +5,9 @@ namespace test_tryCatch.Data.Models;
 
 public partial class Ticket
 {
-    public int Id { get; set; }
+    public int Id { get; }
 
-    public long IdUser { get; set; }
+    public long? IdUser { get; set; }
 
     public string? Direccion { get; set; }
 
@@ -15,15 +15,15 @@ public partial class Ticket
 
     public double? Lng { get; set; }
 
-    public string Descripcion { get; set; } = null!;
+    public string? Descripcion { get; set; } = null!;
 
-    public string ServiceType { get; set; } = null!;
+    public string? ServiceType { get; set; } = null!;
 
     public DateTime CreatedAt { get; set; }
 
     public DateTime UpdatedAt { get; set; }
 
-    public string Status { get; set; } = null!;
+    public string? Status { get; set; } = null!;
 
     public string? Priority { get; set; }
 
