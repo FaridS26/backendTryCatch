@@ -26,7 +26,7 @@ namespace test_tryCatch.Controllers
 
                 return Ok(activePersons);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "An error occurred while processing your request.");
             }

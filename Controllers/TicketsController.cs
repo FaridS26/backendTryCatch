@@ -42,11 +42,11 @@ public class TicketsController : ControllerBase
     [HttpDelete("ticket/{id:int}")]
     public ActionResult<Ticket> DeleteTicket(int id)
     {
-        var ticketChange = _context.Tickets.Find(id);
-        if (User is null)
+        var ticket = _context.Tickets.Find(id);
+        if (ticket is null)
             return NotFound();
 
-        ticketChange.Status = "inactive";
+        ticket.Status = "inactive";
         _context.SaveChanges();
 
         return Ok();
@@ -98,11 +98,11 @@ public class TicketsController : ControllerBase
     [HttpDelete("ticketclose/{id:int}")]
     public ActionResult<Ticket> CloseTicket(int id)
     {
-        var ticketChange = _context.Tickets.Find(id);
-        if (User is null)
+        var ticket = _context.Tickets.Find(id);
+        if (ticket is null)
             return NotFound();
 
-        ticketChange.Status = "close";
+        ticket.Status = "close";
         _context.SaveChanges();
 
         return Ok();

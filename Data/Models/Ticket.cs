@@ -27,5 +27,5 @@ public partial class Ticket
 
     public string? Priority { get; set; }
 
-    public DateOnly? ServiceDate { get; set; }
+    public DateTime? ServiceDate { get; set; }
 }

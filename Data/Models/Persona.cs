@@ -29,7 +29,7 @@ namespace test_tryCatch.Data.Models
 
         public string Status { get; set; } = null!;
 
-        public DateOnly? FechaNacimiento { get; set; }
+        public DateTime? FechaNacimiento { get; set; }
 
         public double? Lat { get; set; }
 
